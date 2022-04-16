@@ -1,6 +1,5 @@
 package test;
 
-import com.codeborne.selenide.Configuration;
 import data.DataHelper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
