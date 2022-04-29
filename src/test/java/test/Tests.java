@@ -1,7 +1,6 @@
 package test;
 
 import data.DataHelper;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
@@ -15,26 +14,9 @@ public class Tests {
         open("http://localhost:9999");
     }
 
-    @AfterEach
-    void setDown() {
-        open("http://localhost:9999");
-        var loginPage = new LoginPage();
-        var authInfo = DataHelper.getAuthInfo();
-        var verificationPage = loginPage.validLogin(authInfo);
-        var verifyInfo = DataHelper.getVerificationCodeFor(authInfo);
-        var dashboardPage = verificationPage.validVerify(verifyInfo);
-        var firstCardInfo =DataHelper.getFirstCardInfo();
-        var secondCardInfo = DataHelper.getSecondCardInfo();
-        int amount1 = dashboardPage.getCardBalance(secondCardInfo);
-        var transferPage = dashboardPage.cardToTransfer(firstCardInfo);
-        dashboardPage = transferPage.makeTransfer(secondCardInfo, String.valueOf(amount1));
-        int amount2 = dashboardPage.getCardBalance(firstCardInfo) / 2;
-        dashboardPage.cardToTransfer(secondCardInfo);
-        transferPage.makeTransfer2(String.valueOf(amount2), firstCardInfo);
-    }
 
     @Test
-    public void test(){
+    public void shouldTransferFromSecondToFirstValidAmount(){
         var loginPage = new LoginPage();
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage =  loginPage.validLogin(authInfo);
@@ -54,7 +36,7 @@ public class Tests {
     }
 
     @Test
-    public void test2(){
+    public void shouldTransferFromSecondToFirstValidAmount2(){
         var loginPage = new LoginPage();
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage =  loginPage.validLogin(authInfo);
@@ -73,7 +55,7 @@ public class Tests {
         assertEquals(expectedBalanceSecondCard, actualBalanceSecondCard);
     }
     @Test
-    public void test3(){
+    public void shouldTransferFromSecondToFirstValidAmount3(){
         var loginPage = new LoginPage();
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage =  loginPage.validLogin(authInfo);
@@ -92,7 +74,7 @@ public class Tests {
         assertEquals(expectedBalanceSecondCard, actualBalanceSecondCard);
     }
     @Test
-    public void test4(){
+    public void shouldTransferFromSecondToFirstValidAmount4(){
         var loginPage = new LoginPage();
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage =  loginPage.validLogin(authInfo);
@@ -111,7 +93,7 @@ public class Tests {
         assertEquals(expectedBalanceSecondCard, actualBalanceSecondCard);
     }
     @Test
-    public void test5(){
+    public void shouldTransferFromSecondToFirstValidAmount5(){
         var loginPage = new LoginPage();
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage =  loginPage.validLogin(authInfo);

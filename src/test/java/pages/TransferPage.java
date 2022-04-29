@@ -25,13 +25,5 @@ public class TransferPage {
         transferButton.click();
         return new DashboardPage();
     }
-    public DashboardPage makeTransfer2(String amountToTransfer, DataHelper.CardInfo cardInfo) {
-        transferAmount.sendKeys(chord(SHIFT, HOME, BACK_SPACE));
-        transferAmount.setValue(amountToTransfer).sendKeys(TAB);
-        transferTo.sendKeys(BACK_SPACE);
-        transferTo.setValue(cardInfo.getCardNumber());
-        transferButton.click();
-        return new DashboardPage();
-    }
 
 }
